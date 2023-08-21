@@ -1,12 +1,17 @@
 @import 'reset';
 
-@import "common/variables";
+@import 'node_modules/include-media/dist/include-media';
 
+@import "common/variables";
+@import "common/global";
+@import "common/form";
+@import "common/media";
 // Font
 @import 'fonts/soho';
 
 // Parts
 @import 'parts/header';
+@import 'parts/hero';
 
 // General
 @import "common/base";

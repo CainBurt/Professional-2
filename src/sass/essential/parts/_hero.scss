@@ -1,0 +1,35 @@
+.hero{
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: auto;
+    // padding-top: 196.85%; /* (img-height / img-width * container-width) *//* (1439 / 731 * 100) */
+    aspect-ratio: 1439/731;
+
+    .inner-container{
+        display: flex; 
+        justify-content: space-between;
+        flex-direction: column;
+        height: 100%;
+        padding-top: 2vw;
+        padding-bottom: 5vw;
+        color: var(--white);
+    }
+    &--title, &--subtitle{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    &--title > p {
+        font-size: 22px;
+        font-weight: 700;
+    }
+
+    &--subtitle > p {
+        font-size: 22px;
+        max-width: 750px;
+    }
+}

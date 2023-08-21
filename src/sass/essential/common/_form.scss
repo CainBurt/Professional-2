@@ -1,0 +1,128 @@
+.cf7-form {
+    background: linear-gradient(#CDBEA1 0%, #A4978F 100%);
+    mix-blend-mode: multiply;
+    padding: 5% 0 10%;
+
+    >p{
+        color: var(--white);
+        padding: 0 20px 5%;
+        text-align: center;
+        font-size: 20px;
+    }
+
+    >div {
+        max-width: 750px;
+        padding: 0 20px;
+        margin: 0 auto;
+    }
+
+    >img{
+        padding-top: 2%;
+        margin: 0 auto;
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+
+        .col-md-6 {
+            flex-basis: 49%;
+        }
+
+        .col-md-12 {
+            flex-basis: 100%;
+
+            >p{
+                padding-top: 5%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                input{
+                    width: 15%;
+                }
+            }
+        }
+    }
+
+    label {
+        color: var(--white);
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"],
+    textarea {
+        color: var(--whtie);
+        border-radius: 10px;
+        height: 50px;
+        background-color: rgba(255, 255, 255, 0.1);
+        width: 100%;
+        border: 1px solid #e7e0d3;
+        font-size: 1.6rem;
+        font-weight: 300;
+        margin-bottom: 2rem;
+        margin: 1% 0;
+        text-indent: 10px;
+    }
+    input[type="checkbox"]{
+        accent-color: var(--white);
+    }
+    textarea {
+        height: 100px;
+    }
+
+    .m-submit{
+        background-color: rgba(255, 255, 255, 0.3);
+        >p{
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+    }
+
+    .m-submit,
+    .m-submit p {
+        display: flex;
+        position: relative;
+        font-weight: bold;
+
+        @include media("<phone") {}
+
+        color: #fff;
+
+        input {
+            position: absolute;
+            right: 0;
+            top: 5rem;
+        }
+
+        input[type="checkbox"] {
+            position: absolute;
+            left: -0.5rem;
+            top: 10%;
+
+            @include media("<phone") {
+                top: 7%;
+            }
+        }
+
+        a {
+            padding-right: 0.5rem;
+            padding-left: 0.5rem;
+            text-decoration: underline;
+
+            &:hover {
+                color: #fff;
+            }
+        }
+    }
+    .wpcf7-not-valid-tip{
+        font-size: 10px;
+        position: absolute;
+        top: 150%;
+        white-space: nowrap;
+    }
+}

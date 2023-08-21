@@ -1,0 +1,26 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+	<div class="container content-wrapper">
+		{{content}}
+		<div class="hero" style="background-image: url('{{ post.thumbnail.src }}')">
+      {# <img src="{{ post.thumbnail.src }}"> #}
+      <div class="inner-container">
+        <div class="hero--title">
+          <h1>{{__('Enquire here','crowd')}}</h1>
+          <p>{{__('Meet with our experts at RE+ 2023!','crowd')}}</p>
+        </div>
+        <div class="hero--subtitle">
+          <p>{{__('Would you like to meet up with our team at RE+ 2023? Get in touch with team Trina Storage to book your spot or get our latest product brochures.','crowd')}}</p>
+        </div>
+      </div>
+		</div>
+
+    <div class="cf7-form">
+    <p>{{__('Please fill in all the fields marked with an asterisk (* )','crowd')}}</p>
+      {{ function('do_shortcode', post.shortcode ) }}
+      <img src="{{ theme.link ~ '/dist/images/form-booth.png' }}">
+    </div>
+	</div>
+{% endblock %}
