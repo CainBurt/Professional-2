@@ -1,0 +1,35 @@
+image: node:17
+
+pipelines:
+  branches:
+    master:
+       - step:
+           name: "Build Package"
+           image: node:17
+           artifacts:
+             - pipeline/**
+           caches:
+             - node
+           script:
+             - echo "Build Package... 🙌"
+             - "node -v"
+             - "npm install"
+             - "npm run build -- --production --pipeline"
+       - step:
+           name: "Deploy to UAT"
+           image: andthensome/docker-node-rsync
+           deployment: staging
+           trigger: automatic
+           script:
+             - echo "Build Package... 🙌"
+             - echo "Deploying to UAT... 🙌"
+             - "rsync -rvz -e 'ssh' pipeline/ $THEME_DIR"
+       - step:
+           name: "Deploy to Live Hosting"
+           image: andthensome/docker-node-rsync
+           deployment: production
+           trigger: manual
+           script:
+             - echo "Build Package... 🙌"
+             - echo "Deploying to UAT... 🙌"
+             - "rsync -rvz -e 'ssh -p 18765' pipeline/ $THEME_DIR"

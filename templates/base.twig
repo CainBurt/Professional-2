@@ -1,0 +1,94 @@
+{% block html_head_container %}
+
+{% include 'html-header.twig' %}
+	{% block head %}
+	{% endblock %}
+	</head>
+{% endblock %}
+
+	<body class="{{body_class}}" data-template="base.twig">
+		{{ options.body_start_scripts }}
+		<header class="header" id="header">
+			{% block header %}
+				{% include 'header.twig' %}
+			{% endblock %}
+		</header>
+
+		<section id="content" role="main">
+			{% if title %}<h1>{{title}}</h1>{% endif %}
+			<div class="wrapper text-body">
+				{% block content %}
+					Sorry, no content
+				{% endblock %}
+			</div>
+			{% if sidebar %}
+				<aside class="layout-sidebar">
+					{{sidebar}}
+				</aside>
+			{% endif %}
+		</section>
+
+		{% block footer %}
+			{% include "social-share.twig" %}
+			<footer id="footer">
+				<div class="wrapper">
+					{% include 'footer.twig' %}
+				</div>
+			</footer>
+
+			{% if not allow_ga and not block_ga %}
+				{% include "tracking.twig" %}
+			{% endif %}
+			
+
+			<script type='text/javascript'>
+				var crowdAjax = "{{fn('admin_url', 'admin-ajax.php')}}";
+			</script>
+
+			{{ function('wp_footer') }}
+		{% endblock %}
+
+        {# 
+            Stop Page Performance Timer
+
+            This function is available in functions.php as a global function.
+         #}
+        {{ function('stop_timber_timer') }}
+
+		{{options.body_end_scripts}}
+		{% if allow_ga %}
+			{% if options.googletagmanager %}
+				<!-- Google Tag Manager (noscript) -->
+				<noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{options.googletagmanager}}"
+				height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+				<!-- End Google Tag Manager (noscript) -->
+			{% endif %}
+		{% endif %}
+		
+		<script type='application/ld+json'>
+			{
+				"@context": "https://schema.org",
+				"@type": "Organization",
+				"name": "{{ site.name }}",
+				"url": "{{ site.url }}",
+				"description": "{{ site.description }}",
+				"sameAs": [
+					{{ fn('do_shortcode', '[social_links raw="1" delim=","]') }}
+				]
+			}
+		</script>
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				let scriptSrcs = [].slice.call(document.querySelectorAll('script[data-src]:not(loaded)'))
+				if (scriptSrcs) {
+					scriptSrcs.forEach(el => {
+						setTimeout(() => {
+							el.src = el.dataset.src
+							el.classList.add('loaded')
+						},200)
+					})
+				}
+			}, false)
+		</script>
+	</body>
+</html>
