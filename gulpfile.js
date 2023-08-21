@@ -58,6 +58,7 @@ const gulp = require('gulp'),
                     entryFiles: glob.sync('./src/js/partytown.js'),
                     outputName: 'partytown'
                 },
+                
             ]
         },
         images: {

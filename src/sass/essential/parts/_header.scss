@@ -1,24 +1,41 @@
 .header {
     position: absolute;
     width: 100%;
+
+    @include media("<=tablet") {
+        background-color: var(--soft-amber);
+    }
+
     &--inner {
         display: flex;
         justify-content: space-between;
 
-        #header-logo{
+        #header-logo {
+
             // width: auto;
-            img{
+            img {
                 padding-top: 50px;
                 padding-left: 50px;
                 max-height: 100%;
+
+                @include media("<=tablet") {
+                    padding: 20px
+                }
             }
         }
+
         .main-nav {
             width: 100%;
-            &--inner{
+
+            &--inner {
+                @include media("<=tablet") {
+                    display: none;
+                }
+
                 display: flex;
                 justify-content: flex-end;
                 align-items: center;
+
                 ul {
                     list-style: none;
                     margin: 0;
@@ -31,35 +48,110 @@
                     font-family: "Soho";
                     box-shadow: 0px 5px 10px #00000052;
                     text-align: center;
+
                     li {
                         display: inline-block;
                         margin-left: 20px;
                         margin-right: 20px;
 
-                        a{
+                        a {
                             color: var(--white);
                             text-decoration: none;
-                            &:hover{
+
+                            &:hover {
                                 text-decoration: underline;
                                 cursor: pointer;
                             }
                         }
                     }
 
-                    li + li::before {
+                    li+li::before {
                         content: "|";
                         display: inline-block;
                         margin-right: 40px;
                     }
                 }
             }
-            
-    
-            .sub-navigation {
-                display: none;
-            }
+
+
         }
     }
 
-   
+    .mobile-toggle-menu-btn {
+        display: none;
+        // width: 24px;
+        // height: 24px;
+        background: none;
+        border: 0;
+
+        // filter: invert(100%) ;
+        @include media("<=tablet") {
+            display: block;
+            max-height: 100%;
+            padding: 20px;
+        }
+
+        .on {
+            display: none;
+
+        }
+
+
+    }
+
+
+}
+
+@include media("<=tablet") {
+    .mobile-menu-opened {
+        overflow: hidden;
+
+        .mobile-toggle-menu-btn {
+            .off {
+                display: none;
+            }
+
+            .on {
+                display: block;
+            }
+        }
+
+        #header-logo,
+        .mobile-toggle-menu-btn {
+            z-index: 9999;
+        }
+
+        .main-nav--inner {
+            display: block;
+
+            ul {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: var(--black);
+                padding: 81px 15px 50px;
+                // display: none;
+                z-index: 99;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                font-size: 2rem;
+                padding-top: 20%;
+
+                li+li::before {
+                    content: none;
+                }
+
+                .current_page_item {
+                    a {
+                        color: var(--soft-amber);
+                    }
+                }
+            }
+
+
+        }
+    }
 }
