@@ -47,6 +47,7 @@
         "@builder.io/partytown": "^0.6.1",
         "@fdaciuk/ajax": "^3.0.4",
         "bootstrap": "^5.3.1",
+        "gsap": "^3.12.2",
         "gulp": "^4.0.2",
         "include-media": "^2.0.0"
     }

@@ -181,7 +181,7 @@ class StarterSite extends TimberSite {
         // require_once custom acf blocks here
         
         // require_once('includes/blocks/example.php');
-        // require_once('includes/blocks/homepage-hero.php');
+        require_once('includes/blocks/banner.php');
     }
 
     function add_to_context( $context ) {

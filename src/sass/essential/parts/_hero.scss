@@ -4,7 +4,7 @@
     width: 100%;
     height: auto;
     // padding-top: 196.85%; /* (img-height / img-width * container-width) *//* (1439 / 731 * 100) */
-    aspect-ratio: 1439/731;
+    aspect-ratio: 1439/730;
     position: relative;
 
     @include media("<=tablet"){
