@@ -1,0 +1,76 @@
+footer{
+    color: var(--white);
+    background-color: var(--light-black);
+
+    a{
+        color: var(--white);
+        text-decoration: none;
+        &:hover{
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    }
+    >.wrapper{
+        display: flex;
+        justify-content: row;
+        justify-content: space-between;
+        padding: 20px 0;
+
+        @include media("<=tablet"){
+            flex-direction: column-reverse;
+        }
+
+        .left{
+            padding-left: 30px;
+            @include media("<=tablet"){
+                padding-right: 30px;         
+                text-align: center;
+            }
+            &--top{
+                @include media("<=tablet"){
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+                a{
+                    padding: 0 10px;
+
+                }
+            }
+            &--bottom{
+                p{
+                    padding:  0 10px;
+                    color: var(--grey);
+                }
+            }
+        }
+        .center{
+            display: flex;
+            justify-content: flex-end;  
+            @include media("<=tablet"){
+                padding: 20px;
+                justify-content: center            
+            }
+            a{
+                color: var(--grey);
+            }
+        }
+        .right{
+            padding-right: 30px;
+            display: flex;
+            justify-content: space-evenly;
+            @include media("<=tablet"){
+                padding-left: 30px;;
+            }
+            a{
+                .fa-circle{
+                    color: var(--grey);
+                }
+                .fa-brands{
+                    color: var(--light-black);
+                }
+            }
+        
+        }
+    }
+}
