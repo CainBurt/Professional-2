@@ -26,14 +26,24 @@
         flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
+        width: 100%;
+        @include media("<=tablet"){
+            flex-wrap: nowrap;
+            flex-direction: column;
+        }
 
         .col-md-6 {
             flex-basis: 49%;
+            flex-wrap: wrap;
+            @include media("<=tablet"){
+                width: 100%;
+            }
         }
 
         .col-md-12 {
             flex-basis: 100%;
-
+            width: 100%;
+           
             >p{
                 padding-top: 5%;
                 display: flex;
@@ -41,7 +51,7 @@
                 align-items: center;
                 flex-direction: column;
                 input{
-                    width: 15%;
+                    // width: 15%;
                 }
             }
         }

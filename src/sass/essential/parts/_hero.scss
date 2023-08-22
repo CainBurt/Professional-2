@@ -14,6 +14,8 @@
         aspect-ratio: 731/700;
     }
 
+   
+
     .inner-container{
         display: flex; 
         justify-content: space-between;
@@ -39,5 +41,40 @@
     &--subtitle > p {
         font-size: 22px;
         max-width: 750px;
+    }
+
+    @media only screen and (max-width: 1230px) {
+        &--title{
+            h1{
+                font-size: 50px;
+            }
+            > p {
+                font-size: 18px;
+                font-weight: 700;
+            }
+        }
+    
+        &--subtitle > p {
+            font-size: 18px;
+            max-width: 750px;
+        }
+    }
+
+    @include media("<=tablet"){
+        &--title{
+            h1{
+                font-size: 35px;
+                padding-top: 10%;
+            }
+            > p {
+                font-size: 14px;
+                font-weight: 700;
+            }
+        }
+    
+        &--subtitle > p {
+            font-size: 14px;
+            max-width: 750px;
+        }
     }
 }
