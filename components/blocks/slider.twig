@@ -1,0 +1,27 @@
+<div class="slider-block">
+
+    <div class="slider-block--top">
+        <div class="slider-block--top--left">
+            <h2>{{ fields.side_text.small_title }}</h2>
+            <p>{{ fields.side_text.small_text }}</p>
+        </div>
+        <div class="slider-block--top--right">
+             <div class="swiper swiper-container">
+                <div class="swiper-wrapper">
+                    {% for slide in fields.slider_right %}
+                        <div class="swiper-slide">
+                            <img src="{{ slide.slider_images }}" alt="Slide Image">
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    <div>
+        
+    <div class="slider-block--bottom">
+        {{ fields.main_text_area }}
+    <div>
+</div>

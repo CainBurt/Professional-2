@@ -76,17 +76,18 @@
                 .active {
                     display: none;
                 }
+                &:hover {
+                    .static {
+                        display: none;
+                    }
+    
+                    .active {
+                        display: block;
+                    }
+                }
             }
 
-            &:hover {
-                .gif-image .static {
-                    display: none;
-                }
-
-                .gif-image .active {
-                    display: block;
-                }
-            }
+           
 
             .storage-image {
                 display: block;
