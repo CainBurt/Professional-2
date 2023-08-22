@@ -1,0 +1,102 @@
+.homepage-hero{
+    .hero-inner-container {
+        max-width: 1200px;
+        justify-content: center;
+        @include media(">=1700px"){
+            max-width: 1700px;
+        }
+    }
+
+    &--title,
+    &--subtitle {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+        text-align: left;
+
+        .home-h1 {
+            line-height: 1.2;
+        }
+
+        .home-p {
+            margin-bottom: 0;
+            font-weight: 500;
+            font-size: 32px;
+
+            span {
+                font-size: 24px;
+                font-weight: normal;
+            }
+        }
+    }
+    &--title{
+        @include media("<=tablet"){
+            flex-direction: column;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    &--subtitle {
+        @include media("<=tablet"){
+            flex-direction: column;
+        }
+        .home-sub-p {
+            width: 20%;
+            @include media("<=tablet"){
+                width: 100%;
+            }
+        }
+
+        .gif-storage {
+            position: relative;
+            // flex-grow: 1;
+            @include media("<=tablet"){
+                width: 100%;
+            }
+            width: 80%;
+            .gif-image {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 30%;
+                width: 30%;
+                transform: translate(10%, 30%);
+                @include media("<=tablet"){
+                    transform: translate(10%, 70%);
+                }
+                z-index: 1;
+
+                .static {
+                    display: block;
+                }
+
+                .active {
+                    display: none;
+                }
+            }
+
+            &:hover {
+                .gif-image .static {
+                    display: none;
+                }
+
+                .gif-image .active {
+                    display: block;
+                }
+            }
+
+            .storage-image {
+                display: block;
+                margin-top: 50px; // Adjust this value as needed
+                margin-left: auto;
+                margin-right: auto;
+                z-index: 0;
+                width: 85%;
+                margin-right: 0;
+            }
+        }
+    }
+}

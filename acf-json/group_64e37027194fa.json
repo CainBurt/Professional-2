@@ -30,6 +30,13 @@
                 "operator": "==",
                 "value": "page-contact.php"
             }
+        ],
+        [
+            {
+                "param": "post_template",
+                "operator": "==",
+                "value": "page-homepage.php"
+            }
         ]
     ],
     "menu_order": 0,
@@ -41,5 +48,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1692627039
+    "modified": 1692698683
 }

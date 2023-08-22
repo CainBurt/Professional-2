@@ -1,0 +1,35 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+	<div class="container content-wrapper">
+		<div class="hero homepage-hero" style="background-image: url('{{ post.thumbnail.src }}')">
+      {# <img src="{{ post.thumbnail.src }}"> #}
+      <div class="inner-container hero-inner-container">
+        <div class="hero--title homepage-hero--title">
+          <h1 class="home-h1">{{_x('Green Power, </br> Any Hour.','crowd')}}</h1>
+          <p class="home-p">{{_x('RE+ 2023','crowd')}} <span>{{_x('  |  Booth No.2138','crowd')}}</span></p>
+        </div>
+        <div class="hero--subtitle homepage-hero--subtitle">
+          <p class="home-sub-p">{{_x('Nevada, here we come! Trina Storage is proud to announce we will attend RE+ for the second time and show you how we plan to lead the renewables transition across the U.S.','crowd')}}</p>
+          <div class="gif-storage">
+            <div class="gif-image">
+              <img class="static" src="{{ theme.link ~ '/dist/images/lightning.png' }}">
+              <img class="active" src="{{ theme.link ~ '/dist/images/clock-animation.gif' }}">
+            </div>
+            <img class="storage-image" src="{{ theme.link ~ '/dist/images/hero-storage.png' }}">
+          </div>
+          
+        </div>
+      </div>
+		</div>
+
+    {{content}}
+
+    <div class="cf7-form">
+    <p>{{_x('Please fill in all the fields marked with an asterisk (* )','crowd')}}</p>
+      {{ function('do_shortcode', post.shortcode ) }}
+      <img src="{{ theme.link ~ '/dist/images/form-booth.png' }}">
+    </div>
+	</div>
+{% endblock %}
