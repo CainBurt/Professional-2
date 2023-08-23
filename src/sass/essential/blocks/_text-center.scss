@@ -1,0 +1,31 @@
+.text-center-block{
+    background: linear-gradient(#D4C7AD 0%, #CBBC9E 100%);
+    padding: 50px 0;
+    .top-text{
+        color: var(--white);
+        text-align: center;
+        h2{
+            font-size: 38px;
+        }
+        div{
+            font-size: 22px;
+        }
+    }
+    .green-button-wrapper{
+        text-align: center;
+        .green-button{
+            text-transform: none;
+            text-decoration: none;
+            color: var(--white);
+        }
+    }
+    .image-row{
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        img{
+            max-width: 100%;
+            flex-grow: 1;
+        }
+    }
+}

@@ -1,0 +1,14 @@
+<div class="text-center-block">
+    <div class="top-text">
+        <h2>{{ fields.text_title }}</h2>
+        <div>{{ fields.text_subtext}}</div>
+    </div>
+    <div class="green-button-wrapper">
+        <a class="green-button" href="{{ fields.video_link.url }}" target="{{ fields.video_link.target }}">{{ fields.video_link.title }}</a>
+    </div>
+    <div class="image-row">
+        <img src="{{ fields.left_image.url }}"/>
+        <img src="{{ fields.middle_image.url }}"/>
+        <img src="{{ fields.right_image.url }}"/>
+    </div>
+</div>

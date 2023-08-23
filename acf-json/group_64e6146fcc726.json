@@ -86,7 +86,7 @@
         {
             "key": "field_64e615990bfb7",
             "label": "Middle Image",
-            "name": "Middle Image",
+            "name": "middle_image",
             "aria-label": "",
             "type": "image",
             "instructions": "",
@@ -111,7 +111,7 @@
         {
             "key": "field_64e615bc326e3",
             "label": "Right Image",
-            "name": "Right Image",
+            "name": "right_image",
             "aria-label": "",
             "type": "image",
             "instructions": "",
@@ -137,9 +137,9 @@
     "location": [
         [
             {
-                "param": "post_type",
+                "param": "block",
                 "operator": "==",
-                "value": "post"
+                "value": "acf\/text-center"
             }
         ]
     ],
@@ -152,5 +152,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1692800456
+    "modified": 1692801733
 }

@@ -183,6 +183,7 @@ class StarterSite extends TimberSite {
         // require_once('includes/blocks/example.php');
         require_once('includes/blocks/banner.php');
         require_once('includes/blocks/slider.php');
+        require_once('includes/blocks/text-center.php');
     }
 
     function add_to_context( $context ) {
