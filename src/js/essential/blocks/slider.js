@@ -1,64 +1,41 @@
-// var swiper = new Swiper(".mySwiper", {
-//     pagination: {
-//       el: ".swiper-pagination",
-//       type: "progressbar",
-//     },
-//     navigation: {
-//       nextEl: ".swiper-button-next",
-//       prevEl: ".swiper-button-prev",
-//     },
-//   });
-
-
-var swiper = new Swiper('.swiper-container', {
-	pagination: {
-		el: '.swiper-pagination',
-		clickable: true
-	},
-	navigation: {
-		nextEl: '.swiper-button-next',
-		prevEl: '.swiper-button-prev'
-	},
-	autoplay: {
-    delay: 2000,
-		disableOnInteraction: false
-  },
-	loop: true,
-	watchSlidesProgress: true
+$(document).ready(function () {
+	var swiper = new Swiper(".swiper-container", {
+		autoplay: {
+			delay: 5000,
+			disableOnInteraction: false
+		},
+		speed: 500,
+		loop: true,
+		pagination: {
+			el: ".swiper-pagination",
+			type: "fraction"
+		},
+		navigation: {
+			nextEl: ".swiper-button-next",
+			prevEl: ".swiper-button-prev"
+		},
+		on: {
+			init: function () {
+				$(".swiper-progress-bar").removeClass("animate");
+				$(".swiper-progress-bar").removeClass("active");
+				$(".swiper-progress-bar").eq(0).addClass("animate");
+				$(".swiper-progress-bar").eq(0).addClass("active");
+			},
+			slideChangeTransitionStart: function () {
+				$(".swiper-progress-bar").removeClass("animate");
+				$(".swiper-progress-bar").removeClass("active");
+				$(".swiper-progress-bar").eq(0).addClass("active");
+			},
+			slideChangeTransitionEnd: function () {
+				$(".swiper-progress-bar").eq(0).addClass("animate");
+			}
+		}
+	});
+	$(".swiper-container").hover(function () {
+		swiper.autoplay.stop();
+		$(".swiper-progress-bar").removeClass("animate");
+	}, function () {
+		swiper.autoplay.start();
+		$(".swiper-progress-bar").addClass("animate");
+	});
 });
-
-// var swiperEl = document.querySelector('.swiper-container');
-
-// swiperEl.addEventListener('mouseenter', function(event) {
-document.addEventListener('mouseenter', event => {
-	const el = event.target;
-	if (el && el.matches && el.matches('.swiper-container')) {
-		// console.log('mouseenter');
-		// console.log('autoplay running', swiper.autoplay.running);
-		el.swiper.autoplay.stop();
-		el.classList.add('swiper-paused');
-		
-		const activeNavItem = el.querySelector('.swiper-pagination-bullet-active');
-		activeNavItem.style.animationPlayState="paused";
-	}
-}, true);
-
-document.addEventListener('mouseleave', event => {
-	// console.log('mouseleave', swiper.activeIndex, swiper.slides[swiper.activeIndex].progress);
-	// console.log('autoplay running', swiper.autoplay.running);
-	const el = event.target;
-	if (el && el.matches && el.matches('.swiper-container')) {
-		el.swiper.autoplay.start();
-		el.classList.remove('swiper-paused');
-
-		const activeNavItem = el.querySelector('.swiper-pagination-bullet-active');
-		
-		activeNavItem.classList.remove('swiper-pagination-bullet-active');
-		// activeNavItem.style.animation = 'none';
-
-		setTimeout(() => {
-			activeNavItem.classList.add('swiper-pagination-bullet-active');
-			// activeNavItem.style.animation = '';
-		}, 10);
-	}
-}, true);

@@ -1,10 +1,6 @@
 .homepage-hero{
     .hero-inner-container {
-        max-width: 1200px;
         justify-content: center;
-        @include media(">=1700px"){
-            max-width: 1700px;
-        }
     }
 
     &--title,
@@ -23,7 +19,6 @@
             margin-bottom: 0;
             font-weight: 500;
             font-size: 32px;
-
             span {
                 font-size: 24px;
                 font-weight: normal;
@@ -44,9 +39,13 @@
             flex-direction: column;
         }
         .home-sub-p {
+            font-size: 25px;
             width: 20%;
             @include media("<=tablet"){
                 width: 100%;
+            }
+            @include media('<1500px'){
+                font-size: 18px;
             }
         }
 
@@ -86,8 +85,6 @@
                     }
                 }
             }
-
-           
 
             .storage-image {
                 display: block;

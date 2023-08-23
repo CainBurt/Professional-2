@@ -8,7 +8,6 @@ const BlockBannerSliderAnimation = (function () {
         init: function () {
 
             gsap.utils.toArray(".banner-inner").forEach(section => {
-                console.log("TEST")
                 const bannerSliderTl = gsap.timeline({
                     scrollTrigger: {
                         scrub: 0.3,

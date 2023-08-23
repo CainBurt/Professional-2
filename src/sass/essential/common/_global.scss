@@ -1,10 +1,16 @@
 .inner-container{
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    // @include media("<1700px", '>=tablet'){
+    //     max-width: 1400px;
+    // }
+    @include media(">=1700px"){
+        max-width: 1700px;
+    }
 }
 
-input[type="submit"]{
+input[type="submit"], .green-button{
     text-transform: uppercase;
     background: linear-gradient(0.25turn, #9cb887, #88aa6e, #9cb887);
     border: none;
