@@ -1,8 +1,7 @@
 .slider-block {
-	display: flex;
-	background-image: url('{{ fields.background_image }}');
 	background-repeat: no-repeat;
 	background-size: cover;
+	display: flex;
 
 	.inner-container {
 		display: flex;

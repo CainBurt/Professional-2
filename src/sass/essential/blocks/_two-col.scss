@@ -1,0 +1,41 @@
+.two-col-block{
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    padding: 100px 200px;
+
+    @include media('<1200px'){
+        flex-direction: column;
+    }
+    @include media('<=tablet'){
+        padding: 20px;
+    }
+    .col{
+        color: var(--white);
+        background: var(--amber-gradient);
+        width: 100%;
+        padding: 50px;
+        border-radius: 1%;
+       
+        .socials{
+            display: flex;
+            align-items: flex-start;
+            
+            a{
+                height: 50%;
+                span{
+                    height: unset;
+                    .fa-circle{
+                        color: var(--green);
+                        border: 3px solid var(--strong-amber);
+                        border-radius: 100%;
+                    }
+                    .fa-brands{
+                        color: var(--white);
+                    }
+                }
+                
+            }
+        }
+    }
+}
