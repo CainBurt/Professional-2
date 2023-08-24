@@ -18,7 +18,7 @@ const gulp = require('gulp'),
     changed = require('gulp-changed'),
     debug = require('gulp-debug'),
     replace = require('gulp-replace'),
-    theme = 'trina-storage-package', // Define the theme name for packaging
+    theme = 'trina-storage', // Define the theme name for packaging
     paths = {
         sass: {
             essential: {

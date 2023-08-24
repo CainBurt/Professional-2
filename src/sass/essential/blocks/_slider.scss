@@ -16,6 +16,9 @@
 			@include media('<1200px') {
 				flex-direction: column;
 			}
+			@include media ('<tablet'){
+				padding-top: 0;
+			}
 
 			&--left {
 				flex: 0 0 35%;
@@ -27,12 +30,18 @@
 					margin-bottom: 10px;
 					color: var(--white);
 					font-size: 38px;
+					@include media('<1200px') {
+						font-size: 35px;
+					}
 				}
 
 				p {
 					margin: 0;
 					color: var(--white);
 					font-size: 25px;
+					@include media('<tablet') {
+						font-size: 16px;
+					}
 
 					@include media("<1700px", '>=tablet') {
 						font-size: 18px;
@@ -48,6 +57,10 @@
 				width: 65%;
 				@include media("<=1200px"){
 					width: unset;
+				}
+				@include media ('<tablet'){
+					padding-top: 0;
+					flex: unset;
 				}
 
 				.swiper-container {
@@ -83,26 +96,33 @@
 			padding: 75px;
 			color: var(--white);
 			border-radius: 10px;
+			h2{
+				font-size: 38px;
+				margin-bottom: 10px;
+			}
 
 			>div {
+				font-size: 22px;
 				div {
 					width: 50%;
 				}
 			}
 
 			@include media('<=tablet') {
+				padding: 20px;
+				h2{
+					font-size: 30px;
+				}
 				>div {
 					flex-direction: column;
-
+					font-size: 16px;
 					div {
 						width: 100%;
 					}
 				}
 
 			}
-			@include media('<=tablet') {
-				padding: 20px;
-			}
+		
 		}
 	}
 }
@@ -196,7 +216,9 @@
 		right: 0;
 		border-radius: 25px;
 		margin-left: auto;
-
+		@include media('<=tablet') {
+			width: 85%;
+		}
 		&:after {
 			position: absolute;
 			top: 0;

@@ -13,10 +13,12 @@
     .col{
         color: var(--white);
         background: var(--amber-gradient);
-        width: 100%;
+        width: 400px;
         padding: 50px;
         border-radius: 1%;
-       
+        @include media('<1200px'){
+            width: 100%;
+        }
         .socials{
             display: flex;
             align-items: flex-start;

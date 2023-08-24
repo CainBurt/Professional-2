@@ -14,7 +14,7 @@
     @include media("<=tablet"){
         background-size: cover;
         background-position: center;
-        aspect-ratio: 731/1000;
+        aspect-ratio: 731/1200;
     }
     @include media("<=phone"){
 
@@ -69,7 +69,6 @@
     @include media("<=tablet"){
         &--title{
             h1{
-                font-size: 35px;
                 padding-top: 10%;
             }
             > p {
