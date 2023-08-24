@@ -1,0 +1,20 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+	<div class="container content-wrapper">
+		<div
+			class="hero solutions-hero" style="background-image: url('{{ post.thumbnail.src }}')">
+			{# <img src="{{ post.thumbnail.src }}"> #}
+			<div class="inner-container">
+				<div class="hero--title solutions--title">
+					<h1>{{_x('Meet Our Smart Storage Solutions at RE+','crowd')}}</h1>
+					<p>{{_x('The energy storage market in America is growing exponentially and Trina Storage is well-positioned to meet the growing demand through our cost-effective, bankable, and reliable storage solutions. Trina Storage provides a fully integrated battery energy storage system utilizing vertically integrated LFP batteries, Tier -1 power conversion systems (PCS) as well as in-house software & control systems.','crowd')}}</p>
+				</div>
+			</div>
+		</div>
+
+    {{post.content}}
+	
+	</div>
+{% endblock %}

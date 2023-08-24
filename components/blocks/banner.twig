@@ -6,23 +6,31 @@
  */
 #}
 
-<div class="block-heading--banner-wrap block-heading--banner-wrap__default">
-    {% if text_or_images == text %}
-    <div class="banner-inner block-banner-slider--text">
-        {% for i in range(1, 15) %}
-            <span>{{ fields.banner_text }}</span>
-        {% endfor %}
+
+	{% if fields.text_or_images %}
+    <div class="block-heading--banner-wrap block-heading--banner-wrap__default">
+		<div class="banner-inner block-banner-slider--text">
+			{% for i in range(1, 15) %}
+				<span>{{ fields.banner_text }}</span>
+			{% endfor %}
+		</div>
     </div>
-    {% else %}
-        <div>
-            <div>
-                <img>
-                <a></a>
-            </div>
-            <div>
-                <img>
-                <a></a>
-            </div>
-        </div>
-    {% endif %}
-</div>
+	{% else %}
+    <div class="image-banner">
+		<div class="image-wrapper">
+			<div class="image-block" {% if fields.images.left_group.left_order == false %} style="flex-direction: column-reverse"{% endif %}>
+				<img src="{{ fields.images.left_group.left_image }}">
+                <div>
+				    <a class="green-button" href="{{ fields.images.left_group.left_link.url }}" target="{{ fields.images.left_group.left_link.target }}">{{ fields.images.left_group.left_link.title }}</a>
+                </div>
+			</div>
+			<div class="image-block" {% if fields.images.right_group.right_order == false %} style="flex-direction: column-reverse"{% endif %}>
+				<img src="{{ fields.images.right_group.right_image }}">
+                <div>
+				    <a class="green-button" href="{{ fields.images.right_group.right_link.url }}" target="{{ fields.images.right_group.right_link.target }}">{{ fields.images.right_group.right_link.title }}</a>
+                </div>
+			</div>
+		</div>
+    </div>
+
+	{% endif %}
