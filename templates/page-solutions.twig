@@ -14,7 +14,114 @@
 			</div>
 		</div>
 
-    {{post.content}}
-	
+		{{post.content}}
+		<div class="main-content" style="background: url('{{ Image(post.meta('background_image')).src }}'); background-size: cover; background-repeat: no-repeat;">
+			<div class="inner-container">
+				<div class="top-container">
+					<div>
+						<p>{{ post.meta('left_content').top_text }}</p>
+						<h3>{{ post.meta('left_content').title }}</h3>
+						<p>{{ post.meta('left_content').content }}</p>
+					</div>
+					<div>
+						<img src="{{ Image(post.meta('right_image')).src }}" alt="">
+					</div>
+				</div>
+				<div class="icons">
+					{% for icon in post.meta('icons') %}
+						<img src="{{ Image(icon.icon).src }}" alt="">
+					{% endfor %}
+				</div>
+				<div class="bottom-container">
+					<p>{{ post.bottom_left }}</p>
+					<p>{{ post.bottom_right }}</p>
+				</div>
+
+				<hr>
+				{% set middle_container = post.meta('middle_container') %}
+				<div class="middle-container">
+					<div class="middle-container--top">
+						<div class="middle-container--top--left">
+							<div>
+								<h3>{{ middle_container.left_content.title_text }}</h3>
+								<img src="{{ Image(middle_container.left_content.title_image).src }}"/>
+							</div>
+							<div>
+								{{ middle_container.left_content.body_text }}
+							</div>
+						</div>
+						<div class="middle-container--top--right">
+							<img src="{{ Image(middle_container.right_content).src }}">
+						</div>
+					</div>
+					<div class="middle-container--bottom">
+					<div class="right-content">
+							<img src="{{ Image(middle_container.image).src }}">
+						</div>
+						<div class="left-content">
+							<p class="text_one">{{ middle_container.text_one }}</p>
+							<p class="text_two">{{ middle_container.text_two }}</p>
+							<p class="text_three">{{ middle_container.text_three }}</p>
+						</div>
+						
+					</div>
+				</div>
+
+				{% set staggered_row = post.meta('staggered_row') %}
+				{% set items = post.meta('staggered_row').row_items %}
+				<div class="staggered-row-container">
+					<h2>{{ staggered_row.row_title }}</h2>
+					{% for item in items %}
+						<div class="item">
+							<h4>{{ item.item_title }}</h4>
+							<div>
+								<img src="{{ Image(item.item_image).src }}">
+								<p>
+									{{ item.item_text }}</p>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+
+
+				<div class="grid-container">
+					{% set grid = post.meta('grid_of_items') %}
+					{% set items = post.meta('grid_of_items').grid %}
+					<div>
+						<h2>{{ grid.grid_title }}</h2>
+						<div class="grid">
+							{% for item in items %}
+								<div class="grid-item">
+									<h4>{{ item.item_title }}</h4>
+									<div>
+										<img src="{{ Image(item.item_image).src }}">
+										<p>
+											{{ item.item_text }}</p>
+									</div>
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{% set downloads = post.meta('downloads').download_list %}
+		<div class="downloads-container" style="background-image: url('{{ Image(post.meta('downloads').downloads_background).src }}')">
+			<div>
+				<div class="inner-container">
+					{% for download in downloads %}
+						<div>
+							<a href="{{ download.download_link.url }}" {% if download.download_or_link == true %} download {% endif %} target="{{ download.download_link.target}}">
+								{{ download.download_link.title }}
+							</a>
+							<a href="{{ download.download_link.url }}" {% if download.download_or_link == true %} download {% endif %} target="{{ download.download_link.target}}">
+								<img src="{{ Image(download.download_image).src}}"/>
+							</a>
+						</div>
+					{% endfor %}
+				</div>
+				<img src="{{ theme.link ~ '/dist/images/form-booth.png' }}">
+			</div>
+		</div>
 	</div>
 {% endblock %}
