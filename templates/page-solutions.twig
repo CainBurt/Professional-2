@@ -17,7 +17,7 @@
 		{{post.content}}
 		<div class="main-content" style="background: url('{{ Image(post.meta('background_image')).src }}'); background-size: cover; background-repeat: no-repeat;">
 			<div class="inner-container solutions-inner-container">
-				<div class="top-container">
+				<div class="top-container" id="elementa">
 					<div>
 						<p>{{ post.meta('left_content').top_text }}</p>
 						<h3>{{ post.meta('left_content').title }}</h3>
@@ -40,7 +40,7 @@
 				<hr>
 				{% set middle_container = post.meta('middle_container') %}
 				<div class="middle-container">
-					<div class="middle-container--top">
+					<div class="middle-container--top" id="e2ms">
 						<div class="middle-container--top--left">
 							<div>
 								<h3>{{ middle_container.left_content.title_text }}</h3>
