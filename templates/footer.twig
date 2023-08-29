@@ -1,17 +1,19 @@
 <div class="left">
 	<div class="left--top">
-		<a href="#">{{ _x('Carrers','Footer','crowd') }}</a>
-		<a href="#">{{ _x('Downloads','Footer','crowd') }}</a>
-		<a href="#">{{ _x('Blog','Footer','crowd') }}</a>
-		<a href="#">{{ _x('Global Service Hotline: +400 988 0000','Footer','crowd') }}</a>
+		{% include 'components/menu.twig' with {
+			menu: footer_menu.get_items(),
+			css_class: 'sub-navigation'
+		} %}
 	</div>
 	<div class="left--bottom">
 		<p>{{ _x('&copy; Trina Solar 2022 - All Rights Reserved','Footer','crowd') }}</p>
 	</div>
 </div>
-<div class="center">
-	<a href="{{ fn('get_privacy_policy_url') }}">{{ _x('Privacy Policy','Footer','crowd') }}</a>
-</div>
+{% if fn('get_privacy_policy_url') != "" %}
+	<div class="center">
+		<a href="{{ fn('get_privacy_policy_url') }}">{{ _x('Privacy Policy','Footer','crowd') }}</a>
+	</div>
+{% endif %}
 <div class="right">
 	{% for social in options.socials %}
 		<a href="{{ social.social_link }}" target="_BLANK">
