@@ -10,10 +10,15 @@
 
 .main-content {
     color: var(--white);
-
+    .solutions-inner-container{
+        max-width: 1400px;
+    }
     .top-container {
         display: flex;
         padding-top: 100px;
+        @include media("<=tablet") {
+            display: block;
+        }
 
         >div:first-child {
             p:first-child {
@@ -41,12 +46,20 @@
     .icons {
         display: flex;
         padding-left: 20px;
+        @include media("<=tablet") {
+            padding-left: unset;
+            justify-content: center;
+        }
     }
 
     .bottom-container {
         display: flex;
         padding-left: 40px;
         gap: 20px;
+        @include media("<=tablet") {
+            display: block;
+            padding-left: 0;
+        }
 
         p {
             font-size: 22px;
@@ -73,6 +86,9 @@
         &--top{
             margin-bottom: 5em;
             display: flex;
+            @include media("<=tablet") {
+                flex-direction: column;
+            }
             &--left{
                 h3{
                     font-size: 42px;
@@ -84,6 +100,11 @@
             position: relative;
             .left-content{
                 p{
+                    @include media("<=tablet") {
+                        margin-left: unset !important;
+                        padding-top: unset !important;
+                        margin-top: 20px;
+                    }
                     &:first-child{
                         margin-left: 10%;
                     }
@@ -95,8 +116,6 @@
                         padding-top: 5%;
                         margin-left: 70%;
                     }
-
-                    
                 }
             }
             .right-content {
@@ -107,12 +126,45 @@
                 // background-color: rgba(0, 0, 0, 0.1); /* Just for visualization */
                 margin-right: 1rem;
                 margin-bottom: 0.5rem;
+                position: relative;
+                @include media("<=tablet") {
+                    display: none;
+                }
                 >img {
                     object-fit: cover;
                     aspect-ratio: 1 / 1;
-                  }
+
+                }
+                  .gif-image {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    height: 70%;
+                    width: 70%;
+                    transform: translate(14%, -14%);
+                    @include media("<=tablet"){
+                        transform: translate(10%, 70%);
+                    }
+                    z-index: 1;
+    
+                    .static {
+                        display: block;
+                    }
+    
+                    .active {
+                        display: none;
+                    }
+                    &:hover {
+                        .static {
+                            display: none;
+                        }
+        
+                        .active {
+                            display: block;
+                        }
+                    }
+                }
               }
-             
         }
     }
 
@@ -126,6 +178,9 @@
             padding: 10px 0;
             margin-bottom: 3em;
             font-size: 42px;
+            @include media("<=tablet") {
+                font-size: 30px;
+            }
         }
 
         .item {
@@ -134,7 +189,9 @@
             // justify-content: center;
             flex-direction: column;
             width: 50%;
-
+            @include media("<=tablet") {
+                width: 100%;
+            }
             >div {
                 display: flex;
                 align-items: flex-start;
@@ -165,12 +222,16 @@
 
     .grid-container {
         padding-bottom: 5em;
+
         h2 {
             text-align: center;
             background: var(--amber-gradient);
             border-radius: 10px;
             padding: 10px 0;
             font-size: 42px;
+            @include media("<=tablet") {
+                font-size: 30px;
+            }
         }
         .grid {
             display: grid;
@@ -178,7 +239,12 @@
             gap: 5%;
             font-size: 22px;
             margin: 5em 0;
+            @include media("<=tablet") {
+                grid-template-columns: unset;
+                display: unset;
+            }
             .grid-item {
+                min-width: 0;
                 position: relative;
                 padding-left: 10px;
                 &::after {
@@ -213,6 +279,13 @@
     height: auto;
     // padding-top: 196.85%; /* (img-height / img-width * container-width) *//* (1439 / 731 * 100) */
     aspect-ratio: 180/41;
+    padding-bottom: 5em;
+    @include media("<=tablet") {
+        aspect-ratio: 1/1.5;
+        object-fit: cover;
+        background-size: cover;
+        background-position: center;
+    }
     >div{
         display: flex;
         height: 100%;
@@ -226,14 +299,24 @@
             justify-content: center;
             gap: 10px;
             // height: 90%;
+            @include media("<=tablet") {
+                flex-direction: column;
+                gap: 50px;
+            }
             div{
                 display: flex;
+                
                 // flex-basis: 0;
                 a{
                     color: var(--white);
                     font-size: 22px;
                     flex-grow: 1;
                     flex-basis: 0;
+                    @include media("<=tablet") {
+                        flex-grow: unset;
+                        flex-basis: unset;
+                    }
+                    
                 }
             }
           

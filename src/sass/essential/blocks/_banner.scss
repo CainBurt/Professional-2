@@ -63,6 +63,10 @@
   background: var(--amber-gradient);
   position: relative;
 
+  @include media ('<=tablet') {
+    height: unset;
+  }
+
   .image-wrapper {
     position: absolute;
     display: flex;
@@ -73,11 +77,29 @@
     right: 0;
     bottom: -60px;
     text-align: center;
+    justify-content: space-evenly;
+    align-items: center;
+
+    @include media ('<=tablet') {
+      position: unset;
+      flex-direction: column;
+      width: 100%;
+    }
 
     .image-block {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      gap: 20px;
+
+      @include media ('<=tablet') {
+        flex-direction: column !important;
+        padding: 20px 0;
+      }
+
+      img {
+        filter: drop-shadow(12px 12px 20px rgba(255, 255, 255, 0.2));
+      }
 
       a {
         font-size: 24px;
@@ -86,7 +108,8 @@
         text-transform: none;
         text-align: center;
         padding-bottom: 15px;
-        @include media('<=tablet'){
+
+        @include media('<=tablet') {
           font-size: 14px;
           padding: 5px;
         }

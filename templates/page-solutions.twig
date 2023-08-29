@@ -16,7 +16,7 @@
 
 		{{post.content}}
 		<div class="main-content" style="background: url('{{ Image(post.meta('background_image')).src }}'); background-size: cover; background-repeat: no-repeat;">
-			<div class="inner-container">
+			<div class="inner-container solutions-inner-container">
 				<div class="top-container">
 					<div>
 						<p>{{ post.meta('left_content').top_text }}</p>
@@ -55,16 +55,21 @@
 						</div>
 					</div>
 					<div class="middle-container--bottom">
-					<div class="right-content">
+						<div class="right-content">
 							<img src="{{ Image(middle_container.image).src }}">
+							<div class="gif-image">
+								<img class="static" src="{{ theme.link ~ '/dist/images/lightning.png' }}">
+								<img class="active" src="{{ theme.link ~ '/dist/images/clock-animation-cut.gif' }}">
+							</div>
 						</div>
 						<div class="left-content">
 							<p class="text_one">{{ middle_container.text_one }}</p>
 							<p class="text_two">{{ middle_container.text_two }}</p>
 							<p class="text_three">{{ middle_container.text_three }}</p>
 						</div>
-						
+						<a class="green-button" href="{{ middle_container.get_in_touch.url }}" tarket="{{ middle_container.get_in_touch.target}}">{{ middle_container.get_in_touch.title}}</a>
 					</div>
+
 				</div>
 
 				{% set staggered_row = post.meta('staggered_row') %}
