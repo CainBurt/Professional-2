@@ -55,6 +55,7 @@
 				/* Adjust padding as needed */
 				box-sizing: border-box;
 				width: 65%;
+				padding-bottom: 120px;
 				@include media("<=1200px"){
 					width: unset;
 				}
@@ -66,7 +67,7 @@
 				.swiper-container {
 					position: relative;
 					width: auto;
-					height: 50%;
+					height: 100%;
 					border-radius: 10px;
 					border: 2px solid var(--soft-amber)
 				}
