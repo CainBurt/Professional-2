@@ -2,42 +2,45 @@
 <!--[if lt IE 7]><html class="no-js ie ie6 lt-ie9 lt-ie8 lt-ie7" {{site.language_attributes}}> <![endif]-->
 <!--[if IE 7]><html class="no-js ie ie7 lt-ie9 lt-ie8" {{site.language_attributes}}> <![endif]-->
 <!--[if IE 8]><html class="no-js ie ie8 lt-ie9" {{site.language_attributes}}> <![endif]-->
-<!--[if gt IE 8]><!--><html {{site.language_attributes}}> <!--<![endif]-->
-<head>
-    <meta charset="{{site.charset}}" />
-    <title>{{ wp_title ? wp_title : site.name}}</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="{{options.android_navigation_bar_colour}}">
-    <meta name="msapplication-navbutton-color" content="{{options.android_navigation_bar_colour}}">
-    {% include 'fonts.twig' %}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
-        <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
-    />
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<!--[if gt IE 8]><!-->
+	<html
+	{{site.language_attributes}}> <!--<![endif]-->
+	<head>
+		<meta charset="{{site.charset}}"/>
+		<title>{{ wp_title ? wp_title : site.name}}</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="theme-color" content="{{options.android_navigation_bar_colour}}">
+		<meta name="msapplication-navbutton-color" content="{{options.android_navigation_bar_colour}}">
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    {{function('wp_head')}}
-    {% if allow_ga %}
-        {% if options.google_analytics %}
-            <script type="text/partytown">
-                window.GOOGLEANALYTICSCODE = '{{options.google_analytics}}';
-            </script>
-            <script type="text/partytown" defer data-src="https://www.google-analytics.com/analytics.js"></script>
-            {{load_ga()}}
-        {% endif %}
-        {% if options.googletagmanager %}
-            <script type="text/partytown">
-                window.GOOGLETAGMANAGERCODE = '{{options.googletagmanager}}';
-            </script>
-            <link rel="dns-prefetch" href="//googletagmanager.com"/>
-            {{load_gtm()}}
-        {% endif %}
-    {% endif %}
-    
-    {{ options.head_scripts }}
+        <link rel='preload' as='style' class='preload-css' href='{{theme.link}}/dist/fonts/stylesheet.css' />    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+		<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+		{{function('wp_head')}}
+		{% if allow_ga %}
+			{% if options.google_analytics %}
+				<script type="text/partytown">
+					window.GOOGLEANALYTICSCODE = '{{options.google_analytics}}';
+				</script>
+				<script type="text/partytown" defer data-src="https://www.google-analytics.com/analytics.js"></script>
+				{{load_ga()}}
+			{% endif %}
+			{% if options.googletagmanager %}
+				<script type="text/partytown">
+					window.GOOGLETAGMANAGERCODE = '{{options.googletagmanager}}';
+				</script>
+				<link rel="dns-prefetch" href="//googletagmanager.com"/>
+				{{load_gtm()}}
+			{% endif %}
+		{% endif %}
+        
+
+        
+
+		{{ options.head_scripts }}
