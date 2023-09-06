@@ -28,3 +28,7 @@ html, body{
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
+
+img[src$=".svg"] {
+    width: 100%;
+}

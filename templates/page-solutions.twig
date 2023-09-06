@@ -8,35 +8,47 @@
 			{# <img src="{{ post.thumbnail.src }}"> #}
 			<div class="inner-container">
 				<div class="hero--title solutions--title">
-					<h1>{{_x('Meet Our Smart Storage Solutions at RE+','crowd')}}</h1>
-					<p>{{_x('The energy storage market in America is growing exponentially and Trina Storage is well-positioned to meet the growing demand through our cost-effective, bankable, and reliable storage solutions. Trina Storage provides a fully integrated battery energy storage system utilizing vertically integrated LFP batteries, Tier -1 power conversion systems (PCS) as well as in-house software & control systems.','crowd')}}</p>
+					<h1>{{_x('Meet Our Smart Storage </br> Solutions at RE+','crowd')}}</h1>
+					<img src="{{ theme.link ~ '/dist/images/form-booth.png' }}" alt="re+ booth number">
+					<img src="{{ theme.link ~ '/dist/images/products_hero.png' }}" alt="storage products">
 				</div>
 			</div>
 		</div>
 
 		{{post.content}}
-		<div class="main-content" style="background: url('{{ Image(post.meta('background_image')).src }}'); background-size: cover; background-repeat: no-repeat;">
-			<div class="inner-container solutions-inner-container">
-				<div class="top-container" id="elementa">
-					<div>
-						<p>{{ post.meta('left_content').top_text }}</p>
-						<h3>{{ post.meta('left_content').title }}</h3>
-						<p>{{ post.meta('left_content').content }}</p>
-					</div>
-					<div>
-						<img src="{{ Image(post.meta('right_image')).src }}" alt="">
-					</div>
-				</div>
-				<div class="icons">
-					{% for icon in post.meta('icons') %}
-						<img src="{{ Image(icon.icon).src }}" alt="">
-					{% endfor %}
-				</div>
-				<div class="bottom-container">
-					<p>{{ post.bottom_left }}</p>
-					<p>{{ post.bottom_right }}</p>
-				</div>
 
+		<div class="main-content" style="background: url('{{ Image(post.meta('background_image')).src }}'); background-size: cover; background-repeat: no-repeat;">
+			<div class="inner-container solutions-inner-container" id="elementa">
+				{% set top_container = post.meta('top_container') %}
+				<div class="top-copy">
+					{{ top_container.top_copy }}
+				</div>
+				<div class="top-container">
+						<div class="top-container__tleft">
+							<h3>{{ top_container.top_left_content.title }}</h3>
+							<p>{{ top_container.top_left_content.content }}</p>
+						</div>
+						<div class="top-container__tright">
+							<div class="icons">
+								{% for icon in top_container.top_right_content.icons %}
+									<img src="{{ Image(icon.icon).src }}" alt="{{ Image(icon.icon).alt }}">
+								{% endfor %}
+							</div>
+							<div>{{ top_container.top_right_content.icon_text }}</div>
+						</div>
+					
+					
+						<div class="top-container__bleft">
+							<img src="{{ Image(top_container.bottom_left_content.left_image).src }}" alt="{{ Image(top_container.bottom_left_content.left_image).alt }}">
+							{% set datasheet = top_container.bottom_left_content.datasheet_link %}
+							<a href="{{ datasheet.href }}">{{ datasheet.title }}</a>
+						</div>
+						<div class="top-container__bright">
+							{{ source( directory ~ '/dist/images/hover_diagram.svg') }}
+							<p>{{ top_container.bottom_right_content.grid_text }}</p>
+						</div>
+					
+				</div>
 				<hr>
 				{% set middle_container = post.meta('middle_container') %}
 				<div class="middle-container">
@@ -44,7 +56,7 @@
 						<div class="middle-container--top--left">
 							<div>
 								<h3>{{ middle_container.left_content.title_text }}</h3>
-								<img src="{{ Image(middle_container.left_content.title_image).src }}"/>
+								<img src="{{ Image(middle_container.left_content.title_image).src }}" alt=""/>
 							</div>
 							<div>
 								{{ middle_container.left_content.body_text }}
@@ -63,39 +75,29 @@
 							</div>
 						</div>
 						<div class="left-content">
-							<p class="text_one">{{ middle_container.text_one }}</p>
-							<p class="text_two">{{ middle_container.text_two }}</p>
-							<p class="text_three">{{ middle_container.text_three }}</p>
+							<p class="text_one">{{ middle_container.bullet_text.text_one }}</p>
+							<p class="text_two">{{ middle_container.bullet_text.text_two }}</p>
+							<p class="text_three">{{ middle_container.bullet_text.text_three }}</p>
 						</div>
 						<a class="green-button" href="{{ middle_container.get_in_touch.url }}" tarket="{{ middle_container.get_in_touch.target}}">{{ middle_container.get_in_touch.title}}</a>
+					</div>
+					<div class="bottom-images">
+						<img src="{{ Image(middle_container.bottom_left_image).src }}" alt=""/>
+						<img src="{{ Image(middle_container.bottom_right_image).src }}" alt=""/>
 					</div>
 
 				</div>
 
-				{% set staggered_row = post.meta('staggered_row') %}
-				{% set items = post.meta('staggered_row').row_items %}
-				<div class="staggered-row-container">
-					<h2>{{ staggered_row.row_title }}</h2>
-					{% for item in items %}
-						<div class="item">
-							<h4>{{ item.item_title }}</h4>
-							<div>
-								<img src="{{ Image(item.item_image).src }}">
-								<p>
-									{{ item.item_text }}</p>
-							</div>
-						</div>
-					{% endfor %}
-				</div>
-
-
 				<div class="grid-container">
 					{% set grid = post.meta('grid_of_items') %}
-					{% set items = post.meta('grid_of_items').grid %}
+					{% set right_items = post.meta('grid_of_items').right_grid %}
+					{% set left_items = post.meta('grid_of_items').left_grid %}
 					<div>
 						<h2>{{ grid.grid_title }}</h2>
 						<div class="grid">
-							{% for item in items %}
+							<img src="{{ Image(grid.left_image).src }}" alt=""/>
+							<div class="grid-items"> 
+							{% for item in right_items %}
 								<div class="grid-item">
 									<h4>{{ item.item_title }}</h4>
 									<div>
@@ -105,9 +107,46 @@
 									</div>
 								</div>
 							{% endfor %}
+							</div>
+							<div class="grid-items"> 
+							{% for l_item in left_items %}
+								<div class="grid-item">
+									<h4>{{ l_item.item_title }}</h4>
+									<div>
+										<img src="{{ Image(l_item.item_image).src }}">
+										<p>
+											{{ l_item.item_text }}</p>
+									</div>
+								</div>
+							{% endfor %}
+							</div>
+							<img src="{{ Image(grid.right_image).src }}" alt=""/>
 						</div>
 					</div>
 				</div>
+
+				{% set staggered_row = post.meta('staggered_row') %}
+				{% set items = post.meta('staggered_row').row_items %}
+				<div class="staggered-row-container">
+					<h2>{{ staggered_row.row_title }}</h2>
+					<div class="rows">
+						{% for item in items %}
+							<div class="item">
+								<h4>{{ item.item_title }}</h4>
+								<div>
+									<img src="{{ Image(item.item_image).src }}">
+									<p>
+										{{ item.item_text }}</p>
+								</div>
+							</div>
+						{% endfor %}
+						<img class="background-image" src="{{ Image(staggered_row.row_image).src }}" alt=""/>
+					</div>
+					<img src="{{ Image(staggered_row.diagram).src }}" alt=""/>
+				</div>
+
+
+				
 			</div>
 		</div>
 		{% set downloads = post.meta('downloads').download_list %}
