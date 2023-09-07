@@ -41,7 +41,7 @@
 						<div class="top-container__bleft">
 							<img src="{{ Image(top_container.bottom_left_content.left_image).src }}" alt="{{ Image(top_container.bottom_left_content.left_image).alt }}">
 							{% set datasheet = top_container.bottom_left_content.datasheet_link %}
-							<a href="{{ datasheet.href }}">{{ datasheet.title }}</a>
+							<a href="{{ datasheet.url }}" target="{{ datasheet.target }}">{{ datasheet.title }}</a>
 						</div>
 						<div class="top-container__bright">
 							{{ source( directory ~ '/dist/images/animated_diagram.svg') }}
