@@ -44,8 +44,12 @@
 							<a href="{{ datasheet.href }}">{{ datasheet.title }}</a>
 						</div>
 						<div class="top-container__bright">
-							{{ source( directory ~ '/dist/images/hover_diagram.svg') }}
+							{{ source( directory ~ '/dist/images/animated_diagram.svg') }}
 							<p>{{ top_container.bottom_right_content.grid_text }}</p>
+							<div class="gif-image">
+								<img class="static" src="{{ theme.link ~ '/dist/images/lightning.png' }}">
+								<img class="active" src="{{ theme.link ~ '/dist/images/clock-animation-cut.gif' }}">
+							</div>
 						</div>
 					
 				</div>
