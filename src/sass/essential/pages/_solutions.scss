@@ -115,8 +115,8 @@
                     transition: transform 0.3s ease, filter 0.3s ease; /* Add a smooth transition effect */
                     &:hover{
                         transform: scale(1.1);
-                        filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5)); /* Add a shadow on hover */
-
+                        filter: drop-shadow(5px 5px 15px rgba(0, 0, 0, 0.2)); /* Add a shadow on hover */
+                        
                     }
                 }
             }
@@ -362,6 +362,12 @@
             font-size: 42px;
             @include media("<=tablet") {
                 font-size: 30px;
+            }
+        }
+        >img{
+            padding-left: 150px;
+            @include media("<=tablet"){
+                padding-left: 35px;
             }
         }
         .rows{

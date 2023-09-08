@@ -10,7 +10,7 @@
 					<div class="swiper-wrapper">
 						{% for slide in fields.slider_right %}
 							<div class="swiper-slide">
-								<img src="{{ slide.slider_images }}" alt="Slide Image">
+								<img src="{{ slide.slider_images }}" alt={{_x('slider storage image', 'Homepage', 'crowd')}}>
 							</div>
 						{% endfor %}
 					</div>
