@@ -83,3 +83,24 @@
         }
     }
 }
+
+.hero-contact-mobile {
+display: none;  
+
+}
+
+/* For mobile screens */
+@media (max-width: 768px) {
+    .hero-contact{
+        display: none;
+    }
+    .hero-contact-mobile {
+        display: block;
+      background-image: url(var(--theme-link)+ '/dist/images/mob-banner.jpg') !important; 
+      .hero--subtitle{
+        p{
+            margin-bottom: 30%;
+        }
+      }
+    }
+}
